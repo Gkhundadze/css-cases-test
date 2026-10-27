@@ -1,4 +1,4 @@
-# დავალება 6 — CSS Engineering & Architecture Cases (თეორიული ქეის-ტესტი)
+# CSS Engineering & Architecture Cases (თეორიული ქეის-ტესტი)
 
 > 🎓 **საინჟინრო და თეორიული შემოწმება:** ეს დავალება აჯამებს და პრაქტიკულ ქეისებად გარდაქმნის წინა მოდულებში მიღებულ ცოდნას: **Centering**, **Box Model**, **CSS Debugging Lab**, **Architecture Decisions** და **Orbital Animations**.
 
