@@ -27,24 +27,6 @@
 
 ---
 
-## 🧪 ქეისების თემატური გადანაწილება
-
-| # | კატეგორია | საკვანძო თემატიკა | დაფუძნებულია დავალებაზე |
-|---|---|---|---|
-| **01** | 📦 Box Model & მათემატიკა | გატეხილი ბადე და 50%-იანი სვეტების ქვემოთ ჩამოვარდნა | [`02-box-model.md`](../02-box-model.md) |
-| **02** | 🎯 გაცენტვრა & Layouts | დაკარგული ვერტიკალური ცენტრირება (`align-items` Flexbox-ის გარეშე) | [`01-centering.md`](../01-centering.md) |
-| **03** | 🔍 Inline & სპეციფიკურობა | უხილავი ზომები და Inline ტეგები (`<span>`, `margin-top` და `width`) | [`04-css-debugging.md`](../04-css-debugging.md) |
-| **04** | 🐞 Stacking Context | მოჩვენება Z-Index — რატომ ვერ შველის `z-index: 999999` მშობლის შრეში | [`04-css-debugging.md`](../04-css-debugging.md) |
-| **05** | 🐞 Stacking & Positioning | მოხეტიალე Badge და Containing Block (`position: relative`-ის ნაკლებობა) | [`04-css-debugging.md`](../04-css-debugging.md) |
-| **06** | 🔍 სელექტორების მახე | უხილავი სფეისი (Space Trap: `.btn-primary :hover` vs `.btn-primary:hover`) | [`04-css-debugging.md`](../04-css-debugging.md) |
-| **07** | ⚡ ტრანსფორმაცია & ანიმაცია | ორბიტალური მენიუ და Counter-Rotation (თავდაყირა აიქონების გასწორება) | [`animation/README.md`](../animation/README.md) |
-| **08** | ⚡ ტრანსფორმაცია & ანიმაცია | `transform-origin`-ის გადაწევის მათემატიკა (`calc(50% + var(--orbit-radius))`) | [`animation/README.md`](../animation/README.md) |
-| **09** | 🎯 არქიტექტურა & გადაწყვეტა | Flexbox vs Grid — როდის რომელია ბუნებრივი 1D ჰედერისთვის | [`05-explain-your-code.md`](../05-explain-your-code.md) |
-| **10** | 📦 Box Model & მათემატიკა | Box Model-ის ზომების გამოთვლა (Width + Padding + Border) | [`02-box-model.md`](../02-box-model.md) |
-| **11** | 🔍 სპეციფიკურობა & კასკადი | სპეციფიკურობის ომი — ID სელექტორი (0,1,1,0) vs კლასი (0,0,1,0) | [`04-css-debugging.md`](../04-css-debugging.md) |
-| **12** | ⚡ მიკრო-ინტერაქცია | `:hover`-ზე ანიმაციის გაჩერება `animation-play-state: paused`-ით | [`animation/README.md`](../animation/README.md) |
-
----
 
 ## 📸 ჩაბარების ინსტრუქცია სტუდენტებისთვის
 
