@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Engineering & Architecture Cases — თეორიული ქეის-ტესტი</title>
+  <meta name="description" content="CSS თეორიული და პრაქტიკული ქეის-ტესტი: Box Model, ცენტრირება, Stacking Context, Debugging და ანიმაციები.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Glow & Grid Effect -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="app-wrapper">
+    <!-- ==========================================
+         SCREEN 1: WELCOME & REGISTRATION
+    ========================================== -->
+    <section id="screen-welcome" class="screen active">
+      <header class="welcome-header">
+        <div class="badge-pill">
+          <span class="pill-dot"></span>
+          <span>CSS Architecture & Debug Lab</span>
+        </div>
+        <h1 class="hero-title">CSS საინჟინრო ქეისები</h1>
+        <p class="hero-subtitle">
+          თეორიული და პრაქტიკული კომპლექსური ტესტი — რეალურ პროექტებზე დაფუძნებული სცენარებით, DevTools დიაგნოსტიკითა და არქიტექტურული გადაწყვეტებით.
+        </p>
+      </header>
+
+      <div class="welcome-grid">
+        <!-- Test Info Card -->
+        <article class="card welcome-card">
+          <h2 class="card-title">
+            <span class="card-icon">📋</span> ტესტის სტრუქტურა და წესები
+          </h2>
+          <ul class="info-list">
+            <li>
+              <span class="info-bullet">🎯</span>
+              <div>
+                <strong>12 რეალისტური ქეისი:</strong> Box Model-ის გამოთვლები, გაცენტვრა, Z-Index & Stacking Context, Inline ფორმატირება, სპეციფიკურობა და ორბიტალური ანიმაციები.
+              </div>
+            </li>
+            <li>
+              <span class="info-bullet">⚖️</span>
+              <div>
+                <strong>საშუალო სირთულე (Mid-Level):</strong> კითხვები არ არის მშრალი თეორია — თითოეული ამოცანა ეფუძნება რეალურ ბაგს ან საინჟინრო დილემას.
+              </div>
+            </li>
+            <li>
+              <span class="info-bullet">📸</span>
+              <div>
+                <strong>საბოლოო რეპორტი & სქრინშოტი:</strong> ტესტის ბოლოს გენერირდება ოფიციალური შეფასების ფურცელი უნიკალური ვერიფიკაციის კოდით (Verification Hash), რომელიც უნდა დასქრინოთ და ატვირთოთ დავალების ჩასაბარებლად.
+              </div>
+            </li>
+            <li>
+              <span class="info-bullet">⏱️</span>
+              <div>
+                <strong>დროის კონტროლი:</strong> ტაიმერი აფიქსირებს დახარჯულ დროს და ასახავს საბოლოო სერტიფიკატზე.
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Student Registration Card -->
+        <article class="card registration-card">
+          <h2 class="card-title">
+            <span class="card-icon">👤</span> სტუდენტის იდენტიფიკაცია
+          </h2>
+          <p class="card-desc">
+            შეიყვანეთ თქვენი მონაცემები ზუსტად. ეს ინფორმაცია დაიტანება საბოლოო შეფასების გვერდზე და ვერიფიკაციის ჰეშ-კოდში.
+          </p>
+
+          <form id="form-register" class="registration-form" novalidate>
+            <div class="form-group">
+              <label for="student-name">სტუდენტის სახელი და გვარი <span class="req">*</span></label>
+              <div class="input-wrapper">
+                <span class="input-icon">✍️</span>
+                <input type="text" id="student-name" placeholder="მაგ. გიორგი ბერიძე" required autocomplete="name">
+              </div>
+              <span class="field-error" id="name-error">გთხოვთ მიუთითოთ სახელი და გვარი</span>
+            </div>
+
+            <div class="form-group">
+              <label for="student-id">ჯგუფი ან პირადი ნომერი <span class="req">*</span></label>
+              <div class="input-wrapper">
+                <span class="input-icon">🆔</span>
+                <input type="text" id="student-id" placeholder="მაგ. Group-A / ID-4091" required>
+              </div>
+              <span class="field-error" id="id-error">გთხოვთ მიუთითოთ ჯგუფი ან ID</span>
+            </div>
+
+            <button type="submit" id="btn-start-quiz" class="btn btn-primary btn-block">
+              <span>🚀 ქეის-ტესტის დაწყება</span>
+            </button>
+          </form>
+        </article>
+      </div>
+
+      <footer class="welcome-footer">
+        <span>დაფუძნებულია სასწავლო მოდულებზე: Centering, Box Model, CSS Debugging, Layout Decisions & Orbiting Animations</span>
+      </footer>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 2: QUIZ IN PROGRESS
+    ========================================== -->
+    <section id="screen-quiz" class="screen">
+      <!-- Sticky Top Status Bar -->
+      <header class="quiz-topbar">
+        <div class="topbar-meta">
+          <div class="student-chip">
+            <span class="chip-avatar">👨‍💻</span>
+            <div class="chip-info">
+              <span class="chip-name" id="display-student-name">სტუდენტი</span>
+              <span class="chip-id" id="display-student-id">ჯგუფი</span>
+            </div>
+          </div>
+
+          <div class="quiz-metrics">
+            <div class="metric-badge category-badge" id="case-category">
+              📦 Box Model
+            </div>
+            <div class="metric-badge timer-badge">
+              <span class="timer-icon">⏱️</span>
+              <span id="quiz-timer">00:00</span>
+            </div>
+            <div class="metric-badge counter-badge">
+              <span>ქეისი</span>
+              <strong id="current-question-num">1</strong>
+              <span>/</span>
+              <span id="total-questions-num">12</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Track -->
+        <div class="progress-container">
+          <div class="progress-bar" id="quiz-progress-bar" style="width: 8.33%;"></div>
+        </div>
+      </header>
+
+      <!-- Main Case Area -->
+      <main class="case-main">
+        <article class="card case-card" id="case-card-container">
+          <!-- Dynamically populated via JavaScript -->
+        </article>
+
+        <!-- Navigation & Actions Bar -->
+        <footer class="case-controls">
+          <button type="button" id="btn-prev-question" class="btn btn-secondary" disabled>
+            <span>← წინა ქეისი</span>
+          </button>
+
+          <button type="button" id="btn-toggle-hint" class="btn btn-ghost">
+            <span>💡 DevTools მინიშნება</span>
+          </button>
+
+          <button type="button" id="btn-next-question" class="btn btn-primary">
+            <span>შემდეგი ქეისი →</span>
+          </button>
+        </footer>
+
+        <!-- Collapsible Hint Box -->
+        <aside id="case-hint-box" class="hint-box" hidden>
+          <div class="hint-header">
+            <span class="hint-icon">🔍</span>
+            <strong>DevTools საინჟინრო მინიშნება:</strong>
+          </div>
+          <p id="hint-text" class="hint-content"></p>
+        </aside>
+      </main>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 3: FINAL RESULTS & SCREENSHOT REPORT
+    ========================================== -->
+    <section id="screen-result" class="screen">
+      <!-- Screenshot Guidance Banner -->
+      <div class="submission-alert-banner">
+        <div class="alert-icon">📸</div>
+        <div class="alert-content">
+          <strong>სტუდენტის საყურადღებოდ:</strong> დავალების ჩასაბარებლად გადაუღეთ სქრინშოტი ქვემოთ მოცემულ ოფიციალურ შეფასების ბარათს (ან გამოიყენეთ ღილაკი <em>„სქრინის ჩამოტვირთვა / ბეჭდვა“</em>) ისე, რომ მკაფიოდ ჩანდეს თქვენი სახელი, ქულა და ვერიფიკაციის კოდი.
+        </div>
+      </div>
+
+      <!-- Action Toolbar -->
+      <div class="report-actions-bar">
+        <button type="button" id="btn-print-report" class="btn btn-primary">
+          <span>🖨️ ბეჭდვა / PDF შენახვა</span>
+        </button>
+        <button type="button" id="btn-retake-quiz" class="btn btn-secondary">
+          <span>🔄 თავიდან გავლა</span>
+        </button>
+      </div>
+
+      <!-- OFFICIAL ASSESSMENT CERTIFICATE (SCREENSHOT TARGET) -->
+      <div id="certificate-target" class="certificate-container">
+        <!-- Security Watermark Ribbon -->
+        <div class="cert-watermark">OFFICIAL CSS ASSESSMENT REPORT • VERIFIED RESULT</div>
+
+        <header class="cert-header">
+          <div class="cert-brand">
+            <div class="cert-logo-icon">⚡</div>
+            <div>
+              <h2 class="cert-title">CSS საინჟინრო ქეისები — ოფიციალური შეფასება</h2>
+              <p class="cert-subtitle">FRONT-END ENGINEERING & ARCHITECTURE DIAGNOSTICS</p>
+            </div>
+          </div>
+          <div class="cert-stamp">
+            <div class="stamp-inner">
+              <span class="stamp-status">VERIFIED</span>
+              <span class="stamp-code" id="result-hash-code">CSS-XXXX-XXXX</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Candidate & Metadata Grid -->
+        <div class="cert-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">სტუდენტი:</span>
+            <strong class="meta-value highlight" id="result-student-name">-</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ჯგუფი / ID:</span>
+            <strong class="meta-value" id="result-student-id">-</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ჩაბარების თარიღი:</span>
+            <strong class="meta-value" id="result-timestamp">-</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">დახარჯული დრო:</span>
+            <strong class="meta-value" id="result-duration">-</strong>
+          </div>
+        </div>
+
+        <!-- Score & Achievement Hero Section -->
+        <div class="cert-score-section">
+          <!-- Circular Score Chart -->
+          <div class="score-circle-wrapper">
+            <svg class="score-circle-svg" viewBox="0 0 160 160">
+              <circle class="score-circle-bg" cx="80" cy="80" r="70"></circle>
+              <circle class="score-circle-bar" id="score-circle-bar" cx="80" cy="80" r="70"></circle>
+            </svg>
+            <div class="score-circle-content">
+              <span class="score-number" id="result-score-percent">0%</span>
+              <span class="score-total" id="result-score-ratio">0 / 12 ქულა</span>
+            </div>
+          </div>
+
+          <!-- Rank & Evaluation Details -->
+          <div class="score-details">
+            <div class="rank-badge" id="result-rank-badge">
+              🏆 Senior CSS Detective
+            </div>
+            <h3 class="rank-title" id="result-rank-title">შედეგის შეჯამება</h3>
+            <p class="rank-feedback" id="result-rank-desc">
+              თქვენ წარმატებით გაიარეთ ყველა საკვანძო ქეისი.
+            </p>
+          </div>
+        </div>
+
+        <!-- Competencies Breakdown -->
+        <div class="cert-competencies">
+          <h4 class="section-title">📊 უნარების პროფილი და კატეგორიები</h4>
+          <div class="competency-grid" id="competency-grid">
+            <!-- Dynamically populated via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Case by Case Audit Table -->
+        <div class="cert-breakdown">
+          <h4 class="section-title">📝 ქეისების დეტალური აუდიტი</h4>
+          <div class="breakdown-list" id="breakdown-list">
+            <!-- Dynamically populated via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Footer Verification Code -->
+        <footer class="cert-footer">
+          <div class="cert-checksum">
+            <span>ვერიფიკაციის უნიკალური ჰეში (Anti-Tamper Checksum):</span>
+            <code id="result-full-checksum">SHA256-PENDING</code>
+          </div>
+          <div class="cert-signature">
+            <span>სტატუსი: <strong>ოფიციალურად დაფიქსირებულია</strong></span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
